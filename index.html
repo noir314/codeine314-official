@@ -17,64 +17,89 @@
             z-index: -1; pointer-events: none; opacity: 0.6;
         }
 
-        #drawer {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-        }
+        #drawer { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1000; }
         .drawer-closed { transform: translateX(-100%); }
         .drawer-open { transform: translateX(0); }
-        .menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 900; }
-        .drawer-open + .menu-overlay { display: block; }
+
+        /* Plate Shake & Color Change Animation */
+        @keyframes shakeColor {
+            0% { transform: translate(0, 0) rotate(0deg); color: inherit; }
+            25% { transform: translate(2px, -2px) rotate(5deg); color: #a855f7; }
+            50% { transform: translate(-2px, 2px) rotate(-5deg); color: #ec4899; }
+            75% { transform: translate(2px, 2px) rotate(5deg); color: #3b82f6; }
+            100% { transform: translate(0, 0) rotate(0deg); color: inherit; }
+        }
+        .plate-emoji { display: inline-block; cursor: pointer; transition: all 0.2s; }
+        .plate-emoji:hover, .plate-emoji:active {
+            animation: shakeColor 0.3s infinite;
+        }
     </style>
 </head>
 <body class="font-mono dark:bg-black">
 
     <canvas id="mushroomCanvas"></canvas>
 
-    <button onclick="toggleDrawer()" class="fixed top-6 left-6 z-[1100] text-2xl p-4 bg-purple-600 text-white rounded-2xl shadow-[0_0_20px_rgba(147,51,234,0.5)] active:scale-90 transition">
+    <button onclick="toggleDrawer()" class="fixed top-6 left-6 z-[1100] text-2xl p-4 bg-purple-600 text-white rounded-2xl shadow-lg active:scale-90 transition">
         <i class="fas fa-bars"></i>
     </button>
 
     <div id="drawer" class="fixed top-0 left-0 h-full w-80 bg-zinc-950 border-r border-purple-900 p-8 drawer-closed flex flex-col justify-between shadow-2xl">
         <div class="space-y-10 mt-20">
-            <h2 class="text-purple-500 font-black text-3xl tracking-tighter italic">C314</h2>
-            <nav class="flex flex-col space-y-8 text-sm font-black uppercase tracking-[0.3em] text-white">
-                <a href="index.html" class="hover:text-purple-400 flex items-center gap-4"><i class="fas fa-compact-disc"></i> Audio</a>
-                <a href="#merch" onclick="toggleDrawer()" class="hover:text-purple-400 flex items-center gap-4"><i class="fas fa-tshirt"></i> Merch</a>
-                <a href="pharmacy.html" class="text-red-500 hover:text-red-400 flex items-center gap-4 text-lg"><i class="fas fa-pills"></i> Pharmacy 21+</a>
-                <a href="https://cash.app/$Dimo314" class="text-green-500 flex items-center gap-4"><i class="fas fa-dollar-sign"></i> Support</a>
+            <h2 class="text-purple-500 font-black text-3xl italic">C314</h2>
+            <nav class="flex flex-col space-y-8 text-sm font-black uppercase tracking-widest text-white">
+                <a href="index.html" class="hover:text-purple-400">Audio</a>
+                <a href="#merch" onclick="toggleDrawer()" class="hover:text-purple-400">Merch</a>
+                <a href="#plates" onclick="toggleDrawer()" class="hover:text-purple-400">Plates</a>
+                <a href="pharmacy.html" class="text-red-500">Pharmacy 21+</a>
             </nav>
         </div>
-        
-        <button onclick="toggleTheme()" class="text-left py-8 border-t border-zinc-900 text-xs uppercase font-black text-zinc-400">
-            <span class="dark:hidden text-white">🌙 Switch to Night</span><span class="hidden dark:inline">☀️ Switch to Day</span>
+        <button onclick="toggleTheme()" class="text-left py-8 border-t border-zinc-800 text-xs font-black text-zinc-400 uppercase">
+            <span class="dark:hidden text-white">🌙 Night</span><span class="hidden dark:inline">☀️ Day</span>
         </button>
     </div>
-    <div class="menu-overlay" onclick="toggleDrawer()"></div>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center relative">
-        <header class="mb-12">
-            <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter mb-4 uppercase mix-blend-difference dark:text-white">Codeine314</h1>
-            <p class="text-zinc-500 text-[10px] uppercase tracking-[0.5em]">Midnight Medicine • Official Portal</p>
-        </header>
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center">
+        <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter mb-4 uppercase mix-blend-difference dark:text-white">Codeine314</h1>
         
-        <div class="space-y-16">
+        <div class="space-y-20">
             <section id="music">
-                <div class="bg-white dark:bg-zinc-900/60 border-4 border-zinc-800 p-2 rounded-[2rem] backdrop-blur-md shadow-2xl">
-                    <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/videoseries?list=PL8n2dqw2Zkm6JrWURWUHk-fa43zailEiu" frameborder="0" allowfullscreen></iframe>
+                <div class="bg-white dark:bg-zinc-900/60 border-4 border-zinc-800 p-2 rounded-[2rem] backdrop-blur-md">
+                    <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/videoseries?list=PL8n2dqw2Zkm6JrWURWUHk-fa43zailEiu" frameborder="0"></iframe>
                 </div>
             </section>
 
             <section id="merch">
-                <div class="bg-purple-800 p-12 rounded-[4rem] text-white font-black italic uppercase shadow-2xl transform -rotate-1">
+                <div class="bg-purple-800 p-12 rounded-[4rem] text-white font-black italic uppercase shadow-2xl">
                     <h2 class="text-5xl mb-4">THE DRIP</h2>
-                    <a href="https://cash.app/$Dimo314" class="bg-black text-white px-12 py-5 rounded-full inline-block font-black hover:bg-white hover:text-black transition">Pre-Order Merch</a>
+                    <a href="https://cash.app/$Dimo314" class="bg-black text-white px-12 py-5 rounded-full inline-block font-black hover:bg-white hover:text-black transition">Merch Shop</a>
+                </div>
+            </section>
+
+            <section id="plates">
+                <div class="bg-zinc-100 dark:bg-zinc-900/80 border-4 border-dashed border-purple-500 p-12 rounded-[4rem] shadow-2xl">
+                    <div class="text-6xl mb-6">
+                        <span class="plate-emoji">🍽️</span> 
+                        <span class="font-black italic uppercase mx-4 dark:text-white">Plates</span> 
+                        <span class="plate-emoji">🍽️</span>
+                    </div>
+                    <p class="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-8">Home-style Provisions • Clarksville Delivery</p>
+                    <div class="grid grid-cols-1 gap-4 text-left max-w-xs mx-auto">
+                        <div class="p-4 border-b border-zinc-800 flex justify-between uppercase text-[10px] font-bold dark:text-zinc-300">
+                            <span>Late Night Special</span>
+                            <span class="text-purple-500">$15</span>
+                        </div>
+                        <div class="p-4 border-b border-zinc-800 flex justify-between uppercase text-[10px] font-bold dark:text-zinc-300">
+                            <span>The "Medicine" Combo</span>
+                            <span class="text-purple-500">$20</span>
+                        </div>
+                    </div>
+                    <a href="https://cash.app/$Dimo314" class="mt-8 inline-block bg-purple-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs hover:invert transition">Order Delivery</a>
                 </div>
             </section>
         </div>
     </main>
 
-    <footer class="p-20 text-center space-y-12 border-t border-zinc-200 dark:border-zinc-900">
+    <footer class="p-20 text-center space-y-12 border-t border-zinc-900">
         <div class="flex justify-center flex-wrap gap-10 text-4xl text-zinc-400 dark:text-zinc-800">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -83,7 +108,7 @@
             <a href="#"><i class="fab fa-snapchat"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="text-[10px] tracking-[0.8em] text-zinc-600 uppercase">Built in Termux • 2026</p>
+        <p class="text-[9px] tracking-[0.8em] text-zinc-600 uppercase">Codeine314 • 2026</p>
     </footer>
 
     <script>
@@ -92,14 +117,12 @@
             d.classList.toggle('drawer-closed');
             d.classList.toggle('drawer-open');
         }
-
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         }
         if (localStorage.getItem('theme') !== 'light') document.documentElement.classList.add('dark');
 
-        // Bouncing Mushrooms
         const c = document.getElementById('mushroomCanvas');
         const x = c.getContext('2d');
         let m = [];
