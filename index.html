@@ -6,68 +6,144 @@
     <title>CODEINE314 | OFFICIAL</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-        // Apply theme on load
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
     <style>
-        .dark body { background: radial-gradient(circle at top right, #1a1025, #050505 70%); }
-        body { background: #f4f4f4; color: #111; transition: background 0.3s ease; }
+        body { margin: 0; overflow-x: hidden; transition: background 0.3s ease; }
+        .dark body { background: #050505; color: #fff; }
+        body { background: #f4f4f4; color: #111; }
+        
+        /* Mushroom Canvas Layer */
+        #mushroomCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Hamburger Drawer */
+        #drawer {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+        .drawer-closed { transform: translateX(-100%); }
+        .drawer-open { transform: translateX(0); }
     </style>
 </head>
-<body class="dark:text-zinc-100 font-mono">
-    <nav class="border-b border-zinc-200 dark:border-zinc-800 p-6 flex justify-between items-center backdrop-blur-md sticky top-0 z-50">
-        <span class="text-xl font-black tracking-tighter text-purple-500">C314</span>
-        <div class="flex items-center space-x-6">
-            <button onclick="toggleTheme()" class="text-xl hover:scale-110 transition cursor-pointer">
-                <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
-            </button>
-            <div class="space-x-4 text-[10px] uppercase tracking-widest font-bold">
-                <a href="#music" class="hover:text-purple-400">Audio</a>
-                <a href="pharmacy.html" class="text-red-500 hover:text-red-400">21+</a>
-            </div>
+<body class="font-mono">
+
+    <canvas id="mushroomCanvas"></canvas>
+
+    <button onclick="toggleDrawer()" class="fixed top-6 left-6 z-[110] text-2xl p-3 bg-purple-600 text-white rounded-xl shadow-lg active:scale-90 transition">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="drawer" class="fixed top-0 left-0 h-full w-72 bg-zinc-950 border-r border-purple-900/50 p-8 drawer-closed flex flex-col justify-between">
+        <div class="space-y-8 mt-16">
+            <h2 class="text-purple-500 font-black text-2xl tracking-tighter">NAVIGATION</h2>
+            <nav class="flex flex-col space-y-6 text-lg font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-purple-400">Audio</a>
+                <a href="#merch" onclick="toggleDrawer()" class="hover:text-purple-400">Merch</a>
+                <a href="pharmacy.html" class="text-red-500 hover:text-red-400">Pharmacy 21+</a>
+                <a href="https://cash.app/$Dimo314" class="text-green-500">Support</a>
+            </nav>
         </div>
-    </nav>
+        
+        <button onclick="toggleTheme()" class="text-left py-4 border-t border-zinc-800">
+            <span class="dark:hidden">🌙 Switch to Dark</span><span class="hidden dark:inline">☀️ Switch to Light</span>
+        </button>
+    </div>
 
-    <header class="py-24 px-6 text-center">
-        <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter mb-4 uppercase mix-blend-difference">Codeine314</h1>
-        <p class="text-zinc-500 max-w-md mx-auto text-[10px] uppercase tracking-[0.4em]">Midnight Medicine</p>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
-        <section id="music" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 rounded-3xl">
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center relative">
+        <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter mb-4 uppercase mix-blend-difference dark:text-white">Codeine314</h1>
+        
+        <section id="music" class="my-12">
+            <div class="bg-white dark:bg-zinc-900/40 border border-zinc-800 p-4 rounded-3xl backdrop-blur-md">
                 <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/videoseries?list=PL8n2dqw2Zkm6JrWURWUHk-fa43zailEiu" frameborder="0"></iframe>
             </div>
-            <div class="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 rounded-3xl flex flex-col justify-center text-center italic">
-                <h2 class="text-3xl font-black mb-2 uppercase">Midnight Medicine</h2>
-                <div class="h-1.5 w-full bg-zinc-200 dark:bg-zinc-800 rounded-full"><div class="h-full bg-purple-600 w-3/4 animate-pulse"></div></div>
+        </section>
+
+        <section id="merch" class="py-20">
+            <div class="bg-purple-600 p-8 rounded-3xl text-white font-black italic uppercase">
+                <h2 class="text-4xl mb-4">C314 Official Merch</h2>
+                <p class="mb-6">Drop 001 Coming Soon</p>
+                <a href="https://cash.app/$Dimo314" class="bg-black text-white px-8 py-4 rounded-full inline-block">Pre-Order</a>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-zinc-200 dark:border-zinc-800 p-12 text-center space-y-8">
-        <div class="flex justify-center space-x-8 text-2xl text-zinc-400 dark:text-zinc-600">
-            <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="hover:text-zinc-100 transition"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="hover:text-indigo-500 transition"><i class="fab fa-discord"></i></a>
-            <a href="#" class="hover:text-yellow-400 transition"><i class="fab fa-snapchat"></i></a>
-            <a href="#" class="hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
+    <footer class="p-12 text-center space-y-8 bg-zinc-100 dark:bg-transparent">
+        <div class="flex justify-center flex-wrap gap-6 text-2xl text-zinc-500">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-snapchat"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="text-[10px] uppercase tracking-[0.5em]">© 2026 Codeine314</p>
+        <p class="text-[10px] tracking-[0.5em] text-zinc-600 uppercase">© 2026 Codeine314</p>
     </footer>
+
+    <script>
+        // Drawer Logic
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            drawer.classList.toggle('drawer-closed');
+            drawer.classList.toggle('drawer-open');
+        }
+
+        // Theme Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+
+        // Bouncing Mushroom Animation
+        const canvas = document.getElementById('mushroomCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const mushrooms = [];
+        const mushroomEmoji = ['🍄', '🍄', '🍄']; // Can swap with image URLs later
+
+        class Mushroom {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = 30 + Math.random() * 20;
+                this.speedX = (Math.random() - 0.5) * 3;
+                this.speedY = (Math.random() - 0.5) * 3;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.font = `${this.size}px serif`;
+                ctx.fillText('🍄', this.x, this.y);
+            }
+        }
+
+        for (let i = 0; i < 15; i++) mushrooms.push(new Mushroom());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            mushrooms.forEach(m => { m.update(); m.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
