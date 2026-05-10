@@ -25,6 +25,7 @@
         .menu-grid { display: grid; grid-template-cols: 1fr; gap: 15px; margin-top: 20px; }
         .item { border-bottom: 1px solid #1f1f1f; padding-bottom: 10px; display: flex; justify-content: space-between; }
         .category-icon { font-size: 3rem; margin-bottom: 1rem; color: #a855f7; }
+        .secret-card { background: linear-gradient(145deg, #0f0f0f, #1a0b2e); border: 2px solid #a855f7 !important; }
     </style>
 </head>
 <body class="pt-10">
@@ -57,15 +58,6 @@
             </div>
 
             <div class="swiper-slide">
-                <div class="category-icon">🥩</div>
-                <h2 class="text-3xl font-black uppercase italic">Dinner</h2>
-                <div class="menu-grid">
-                    <div class="item"><span>The Main Fix</span><span>$22</span></div>
-                    <div class="item"><span>Late Night Roast</span><span>$18</span></div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
                 <div class="category-icon text-red-500">🔥</div>
                 <h2 class="text-3xl font-black uppercase italic text-red-500">Spicy</h2>
                 <div class="menu-grid">
@@ -83,12 +75,13 @@
                 </div>
             </div>
 
-            <div class="swiper-slide">
-                <div class="category-icon text-pink-400">🍰</div>
-                <h2 class="text-3xl font-black uppercase italic">Dessert</h2>
+            <div class="swiper-slide secret-card">
+                <div class="category-icon text-purple-400">🕵️‍♂️</div>
+                <h2 class="text-3xl font-black uppercase italic text-purple-400 underline decoration-wavy">Secret Menu</h2>
                 <div class="menu-grid">
-                    <div class="item"><span>Sugar Rush</span><span>$8</span></div>
-                    <div class="item"><span>Midnight Fudge</span><span>$9</span></div>
+                    <div class="item font-bold text-purple-300"><span>Off-The-Record Ribs</span><span>$25</span></div>
+                    <div class="item font-bold text-purple-300"><span>Midnight Mystery Box</span><span>$30</span></div>
+                    <p class="text-[10px] text-zinc-500 mt-4 uppercase tracking-tighter">Only available for the inner circle.</p>
                 </div>
             </div>
 
@@ -124,9 +117,10 @@
     <script>
         var swiper = new Swiper(".mySwiper", {
             effect: "cards",
-            grabCursor: true, loop: true,
+            grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
+            loop: true,
             pagination: { el: ".swiper-pagination", clickable: true },
         });
     </script>
