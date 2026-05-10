@@ -21,7 +21,6 @@
         .drawer-closed { transform: translateX(-100%); }
         .drawer-open { transform: translateX(0); }
 
-        /* Plate Shake & Color Change Animation */
         @keyframes shakeColor {
             0% { transform: translate(0, 0) rotate(0deg); color: inherit; }
             25% { transform: translate(2px, -2px) rotate(5deg); color: #a855f7; }
@@ -29,7 +28,7 @@
             75% { transform: translate(2px, 2px) rotate(5deg); color: #3b82f6; }
             100% { transform: translate(0, 0) rotate(0deg); color: inherit; }
         }
-        .plate-emoji { display: inline-block; cursor: pointer; transition: all 0.2s; }
+        .plate-emoji { display: inline-block; cursor: pointer; }
         .plate-emoji:hover, .plate-emoji:active {
             animation: shakeColor 0.3s infinite;
         }
@@ -39,18 +38,24 @@
 
     <canvas id="mushroomCanvas"></canvas>
 
-    <button onclick="toggleDrawer()" class="fixed top-6 left-6 z-[1100] text-2xl p-4 bg-purple-600 text-white rounded-2xl shadow-lg active:scale-90 transition">
-        <i class="fas fa-bars"></i>
-    </button>
+    <div class="fixed top-6 left-6 z-[1100] flex items-center gap-4">
+        <button onclick="toggleDrawer()" class="text-2xl p-4 bg-purple-600 text-white rounded-2xl shadow-lg active:scale-90 transition">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="flex items-center gap-2 bg-zinc-950/80 backdrop-blur-md px-5 py-3 rounded-2xl border border-purple-900/50 shadow-xl hover:scale-105 transition">
+            <span class="text-purple-500 font-black text-xl italic tracking-tighter">C314</span>
+            <span class="text-xl">🏡</span>
+        </a>
+    </div>
 
     <div id="drawer" class="fixed top-0 left-0 h-full w-80 bg-zinc-950 border-r border-purple-900 p-8 drawer-closed flex flex-col justify-between shadow-2xl">
-        <div class="space-y-10 mt-20">
-            <h2 class="text-purple-500 font-black text-3xl italic">C314</h2>
+        <div class="space-y-10 mt-32">
+            <h2 class="text-purple-500 font-black text-3xl italic">NAVIGATION</h2>
             <nav class="flex flex-col space-y-8 text-sm font-black uppercase tracking-widest text-white">
-                <a href="index.html" class="hover:text-purple-400">Audio</a>
-                <a href="#merch" onclick="toggleDrawer()" class="hover:text-purple-400">Merch</a>
-                <a href="#plates" onclick="toggleDrawer()" class="hover:text-purple-400">Plates</a>
-                <a href="pharmacy.html" class="text-red-500">Pharmacy 21+</a>
+                <a href="index.html" class="flex items-center gap-3"><i class="fas fa-home"></i> Home 🏡</a>
+                <a href="#merch" onclick="toggleDrawer()" class="flex items-center gap-3">Official Merch</a>
+                <a href="#plates" onclick="toggleDrawer()" class="flex items-center gap-3">Plates</a>
+                <a href="pharmacy.html" class="text-red-500 flex items-center gap-3">Pharmacy 21+</a>
             </nav>
         </div>
         <button onclick="toggleTheme()" class="text-left py-8 border-t border-zinc-800 text-xs font-black text-zinc-400 uppercase">
@@ -58,10 +63,10 @@
         </button>
     </div>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center">
-        <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter mb-4 uppercase mix-blend-difference dark:text-white">Codeine314</h1>
+    <main class="max-w-4xl mx-auto px-6 pt-40 pb-24 text-center">
+        <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter mb-12 uppercase mix-blend-difference dark:text-white">Codeine314</h1>
         
-        <div class="space-y-20">
+        <div class="space-y-24">
             <section id="music">
                 <div class="bg-white dark:bg-zinc-900/60 border-4 border-zinc-800 p-2 rounded-[2rem] backdrop-blur-md">
                     <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/videoseries?list=PL8n2dqw2Zkm6JrWURWUHk-fa43zailEiu" frameborder="0"></iframe>
@@ -76,24 +81,14 @@
             </section>
 
             <section id="plates">
-                <div class="bg-zinc-100 dark:bg-zinc-900/80 border-4 border-dashed border-purple-500 p-12 rounded-[4rem] shadow-2xl">
+                <div class="bg-zinc-100 dark:bg-zinc-900/80 border-4 border-dashed border-purple-500 p-12 rounded-[4rem]">
                     <div class="text-6xl mb-6">
                         <span class="plate-emoji">🍽️</span> 
                         <span class="font-black italic uppercase mx-4 dark:text-white">Plates</span> 
                         <span class="plate-emoji">🍽️</span>
                     </div>
-                    <p class="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-8">Home-style Provisions • Clarksville Delivery</p>
-                    <div class="grid grid-cols-1 gap-4 text-left max-w-xs mx-auto">
-                        <div class="p-4 border-b border-zinc-800 flex justify-between uppercase text-[10px] font-bold dark:text-zinc-300">
-                            <span>Late Night Special</span>
-                            <span class="text-purple-500">$15</span>
-                        </div>
-                        <div class="p-4 border-b border-zinc-800 flex justify-between uppercase text-[10px] font-bold dark:text-zinc-300">
-                            <span>The "Medicine" Combo</span>
-                            <span class="text-purple-500">$20</span>
-                        </div>
-                    </div>
-                    <a href="https://cash.app/$Dimo314" class="mt-8 inline-block bg-purple-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs hover:invert transition">Order Delivery</a>
+                    <p class="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-8">Home-style Provisions • Clarksville</p>
+                    <a href="https://cash.app/$Dimo314" class="inline-block bg-purple-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs">Order Now</a>
                 </div>
             </section>
         </div>
