@@ -1,65 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C314 | DISCOGRAPHY</title>
+    <title>C314 | MIDNIGHT MEDICINE</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { background: #050505; color: #fff; font-family: monospace; }
-        .album-card {
-            background: rgba(15, 15, 15, 0.6);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-        }
-        .album-card:hover { border-color: #a855f7; transform: translateY(-5px); }
-        .stream-link {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        .stream-link:hover { background: rgba(168, 85, 247, 0.2); border-color: #a855f7; }
+        body { background: #000; color: #fff; font-family: 'Courier New', monospace; }
+        .album-glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(168, 85, 247, 0.4); }
     </style>
 </head>
-<body class="pb-24">
-
-    <header class="p-8 flex justify-between items-center sticky top-0 bg-black/80 backdrop-blur-xl z-50">
-        <a href="index.html" class="text-2xl"><i class="fas fa-arrow-left"></i></a>
-        <h1 class="text-2xl font-black italic tracking-tighter text-purple-500 uppercase">Discography</h1>
-        <div class="w-10"></div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-6 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div class="album-card rounded-[3rem] p-10 flex flex-col items-center">
-            <div class="w-full aspect-square bg-zinc-900 rounded-[2rem] mb-8 flex items-center justify-center text-8xl shadow-inner">💿</div>
-            <h3 class="text-3xl font-black uppercase italic mb-6">Midnight Medicine</h3>
-            
-            <div class="w-full space-y-3">
-                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
-                    <span class="flex items-center gap-3"><i class="fab fa-youtube text-red-600"></i> YouTube Music</span>
-                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
-                </a>
-                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
-                    <span class="flex items-center gap-3"><i class="fas fa-water text-cyan-400"></i> Tidal (Hi-Fi)</span>
-                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
-                </a>
-                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
-                    <span class="flex items-center gap-3"><i class="fab fa-apple text-white"></i> Apple Music</span>
-                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
-                </a>
-                
-                <div class="pt-6">
-                    <button onclick="window.location.href='https://cash.app/$Dimo314'" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-purple-600 hover:text-white transition">
-                        Buy Digital Album 0 🥶
-                    </button>
-                </div>
-            </div>
+<body class="flex flex-col items-center justify-center min-h-screen p-6">
+    <div class="album-glass rounded-[3rem] p-10 max-w-md w-full text-center">
+        <h2 class="text-xs tracking-[0.5em] text-purple-500 uppercase mb-4 font-bold">New Release</h2>
+        <h1 class="text-4xl font-black italic uppercase tracking-tighter mb-2">Midnight Medicine</h1>
+        <div class="relative inline-block mb-8">
+            <a href="https://www.bandlab.com/cody5738" target="_blank">
+                <img src="chrome_qrcode_1778470517910.png" alt="Scan to Stream" class="w-48 h-48 rounded-2xl mx-auto shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+            </a>
         </div>
-
-    </main>
-
+        <div class="space-y-4">
+            <button class="w-full py-4 bg-purple-600 text-white rounded-xl font-black uppercase text-xs">Pre-Order Album 🥶</button>
+            <a href="https://www.bandlab.com/cody5738" class="block w-full py-4 border border-white/10 rounded-xl font-bold uppercase text-[10px] text-zinc-400">Stream Track 1</a>
+        </div>
+    </div>
 </body>
 </html>
