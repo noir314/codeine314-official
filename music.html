@@ -9,46 +9,56 @@
     <style>
         body { background: #050505; color: #fff; font-family: monospace; }
         .album-card {
-            background: #0f0f0f;
-            border: 1px solid #1f1f1f;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(15, 15, 15, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
         }
-        .album-card:hover {
-            border-color: #a855f7;
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+        .album-card:hover { border-color: #a855f7; transform: translateY(-5px); }
+        .stream-link {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
+        .stream-link:hover { background: rgba(168, 85, 247, 0.2); border-color: #a855f7; }
     </style>
 </head>
 <body class="pb-24">
 
     <header class="p-8 flex justify-between items-center sticky top-0 bg-black/80 backdrop-blur-xl z-50">
         <a href="index.html" class="text-2xl"><i class="fas fa-arrow-left"></i></a>
-        <h1 class="text-2xl font-black italic tracking-tighter text-purple-500">C314 MUSIC</h1>
+        <h1 class="text-2xl font-black italic tracking-tighter text-purple-500 uppercase">Discography</h1>
         <div class="w-10"></div>
     </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 mt-10">
-        <div class="album-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-            <div class="w-full aspect-square bg-zinc-900 rounded-2xl mb-6 flex items-center justify-center text-6xl shadow-inner">💿</div>
-            <p class="text-[10px] text-purple-500 uppercase font-black tracking-widest mb-1">Full Length Album</p>
-            <h3 class="font-bold text-xl mb-4 uppercase tracking-tighter italic">Midnight Medicine</h3>
-            <p class="text-zinc-500 text-xs mb-8">The underground wicked rap debut.</p>
-            <a href="https://cash.app/$Dimo314" class="w-full bg-white text-black py-4 rounded-xl text-[10px] font-black uppercase hover:bg-purple-600 hover:text-white transition">Buy Digital / Physical</a>
+    <main class="max-w-6xl mx-auto px-6 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="album-card rounded-[3rem] p-10 flex flex-col items-center">
+            <div class="w-full aspect-square bg-zinc-900 rounded-[2rem] mb-8 flex items-center justify-center text-8xl shadow-inner">💿</div>
+            <h3 class="text-3xl font-black uppercase italic mb-6">Midnight Medicine</h3>
+            
+            <div class="w-full space-y-3">
+                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
+                    <span class="flex items-center gap-3"><i class="fab fa-youtube text-red-600"></i> YouTube Music</span>
+                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
+                </a>
+                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
+                    <span class="flex items-center gap-3"><i class="fas fa-water text-cyan-400"></i> Tidal (Hi-Fi)</span>
+                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
+                </a>
+                <a href="#" class="stream-link flex items-center justify-between p-4 rounded-2xl group">
+                    <span class="flex items-center gap-3"><i class="fab fa-apple text-white"></i> Apple Music</span>
+                    <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition"></i>
+                </a>
+                
+                <div class="pt-6">
+                    <button onclick="window.location.href='https://cash.app/$Dimo314'" class="w-full bg-white text-black py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-purple-600 hover:text-white transition">
+                        Buy Digital Album 0 🥶
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="album-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-            <div class="w-full aspect-square bg-zinc-900 rounded-2xl mb-6 flex items-center justify-center text-6xl shadow-inner">📻</div>
-            <p class="text-[10px] text-purple-500 uppercase font-black tracking-widest mb-1">EP / Single</p>
-            <h3 class="font-bold text-xl mb-4 uppercase tracking-tighter italic">Codeine Chronicles</h3>
-            <p class="text-zinc-500 text-xs mb-8">Exclusive tracks and rare recordings.</p>
-            <a href="https://cash.app/$Dimo314" class="w-full bg-white text-black py-4 rounded-xl text-[10px] font-black uppercase hover:bg-purple-600 hover:text-white transition">Buy Digital Copy</a>
-        </div>
-
-        <div class="album-card border-dashed border-zinc-800 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center opacity-50">
-            <div class="text-4xl mb-4 text-zinc-700 font-black italic">COMING SOON</div>
-            <p class="text-[10px] uppercase tracking-widest text-zinc-600">The Next Chapter</p>
-        </div>
     </main>
 
 </body>
