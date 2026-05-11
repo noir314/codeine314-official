@@ -42,9 +42,9 @@
         <div class="space-y-10 mt-32">
             <nav class="flex flex-col space-y-8 text-sm font-black uppercase tracking-widest text-white">
                 <a href="index.html" class="flex items-center gap-3"><i class="fas fa-home"></i> Home 🏡</a>
-                <a href="merch.html" class="flex items-center gap-3">Official Merch</a>
                 <a href="menu.html" class="flex items-center gap-3">Plates</a>
                 <a href="music.html" class="flex items-center gap-3">Music Gallery</a>
+                <a href="merch.html" class="flex items-center gap-3">Official Merch</a>
             </nav>
         </div>
         <button onclick="toggleTheme()" class="text-left py-8 border-t border-zinc-800 text-xs font-black text-zinc-400 uppercase">
@@ -61,13 +61,6 @@
         </header>
         
         <div class="space-y-24">
-            <section id="merch">
-                <div class="bg-purple-800 p-12 rounded-[4rem] text-white font-black italic uppercase shadow-2xl">
-                    <h2 class="text-5xl mb-4">THE DRIP</h2>
-                    <a href="merch.html" class="bg-black text-white px-12 py-5 rounded-full inline-block font-black hover:bg-white hover:text-black transition uppercase tracking-widest">Merch Shop</a>
-                </div>
-            </section>
-
             <section id="plates">
                 <div class="bg-zinc-100 dark:bg-zinc-900/80 border-4 border-dashed border-purple-500 p-12 rounded-[4rem] shadow-2xl">
                     <div class="text-6xl mb-6">
@@ -76,17 +69,25 @@
                         <span class="plate-emoji">🍽️</span>
                     </div>
                     <p class="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-8">Home-style Provisions • Clarksville</p>
-                    <a href="menu.html" class="inline-block bg-purple-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest">Order Now</a>
+                    <a href="menu.html" class="inline-block bg-purple-600 text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg active:scale-95 transition">Order Now</a>
                 </div>
             </section>
 
             <section id="music">
                 <div class="bg-white dark:bg-zinc-900/60 border-4 border-zinc-800 p-12 rounded-[4rem] backdrop-blur-md shadow-2xl">
-                    <h2 class="text-5xl font-black italic uppercase mb-6 dark:text-white">THE MUSIC</h2>
+                    <h2 class="text-5xl font-black italic uppercase mb-6 dark:text-white">THE SOUND</h2>
                     <div class="mb-8">
                         <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/videoseries?list=PL8n2dqw2Zkm6JrWURWUHk-fa43zailEiu" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <a href="music.html" class="bg-zinc-950 text-white px-12 py-5 rounded-full inline-block font-black hover:bg-purple-600 transition uppercase tracking-widest">Browse Discography</a>
+                    <a href="music.html" class="bg-zinc-950 text-white px-12 py-5 rounded-full inline-block font-black hover:bg-purple-600 transition uppercase tracking-widest active:scale-95 transition">Browse Discography</a>
+                </div>
+            </section>
+
+            <section id="merch">
+                <div class="bg-purple-800 p-12 rounded-[4rem] text-white font-black italic uppercase shadow-2xl">
+                    <h2 class="text-5xl mb-4 text-black font-black">THE DRIP</h2>
+                    <p class="text-[10px] mb-8 opacity-80 tracking-[0.5em] font-black">Midnight Apparel Supply</p>
+                    <a href="merch.html" class="bg-black text-white px-12 py-5 rounded-full inline-block font-black hover:bg-white hover:text-black transition uppercase tracking-widest active:scale-95 transition">Merch Shop</a>
                 </div>
             </section>
         </div>
